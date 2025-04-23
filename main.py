@@ -74,6 +74,13 @@ async def signup(
             {"request": request, "error": "Username already exists"}
         )
     
+    existing_email = db.query(User).filter(User.email == email).first()
+    if existing_email:
+        return templates.TemplateResponse(
+            "signup.html", 
+            {"request": request, "error": "Email address already in use"}
+        )
+    
     if password != password_confirmation:
         return templates.TemplateResponse(
             "signup.html", 
