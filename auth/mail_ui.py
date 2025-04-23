@@ -1,5 +1,3 @@
-# For cli setup
-
 import smtplib
 from email.message import EmailMessage
 
@@ -9,15 +7,14 @@ PORT = 465
 username = 'gauravsh839@gmail.com'
 sender = username
 
-def signup_mail():
-    reciever_mail = input('enter you gmail account : ')
-
-    To = [reciever_mail]
-    CC = [reciever_mail]
+def signup_mail(receiver_mail):
+    """Send an email to confirm successful signup"""
+    To = [receiver_mail]
+    CC = [receiver_mail]
     subject = "thefarmguy login"
-    body = "\n you have successfully signed up \n Now you can change you password or you can logout . \n Thanks"
+    body = "\n you have successfully signed up \n Now you can change your password or you can logout. \n Thanks"
 
-    reciever = To + CC
+    receiver = To + CC
 
     message = EmailMessage()
     message["from"] = sender
@@ -28,18 +25,17 @@ def signup_mail():
 
     with (smtplib.SMTP_SSL(HOST, PORT)) as server:
         server.login(username, 'zgxgzjvysnpuqzlg')
-        server.send_message(message, sender, reciever)
+        server.send_message(message, sender, receiver)
         print('message sent')
     
-def reset_mail():
-    reciever_mail = input('enter you gmail account : ')
-
-    To = [reciever_mail]
-    CC = [reciever_mail]
+def reset_mail(receiver_mail):
+    """Send an email to confirm password reset"""
+    To = [receiver_mail]
+    CC = [receiver_mail]
     subject = "thefarmguy login"
     body = "\n password changed. \n Thanks"
 
-    reciever = To + CC
+    receiver = To + CC
 
     message = EmailMessage()
     message["from"] = sender
@@ -50,5 +46,5 @@ def reset_mail():
 
     with (smtplib.SMTP_SSL(HOST, PORT)) as server:
         server.login(username, 'zgxgzjvysnpuqzlg')
-        server.send_message(message, sender, reciever)
-        print('message sent')    
+        server.send_message(message, sender, receiver)
+        print('message sent')

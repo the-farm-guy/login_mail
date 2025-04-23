@@ -1,3 +1,5 @@
+# Run only this file for cli system.
+
 from database.model import User, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
