@@ -10,7 +10,7 @@ sender = username
 def signup_mail():
     reciever_mail = input('enter you gmail account : ')
 
-    To = [sender]
+    To = [reciever_mail]
     CC = [reciever_mail]
     subject = "thefarmguy login"
     body = "\n you have successfully signed up \n Now you can change you password or you can logout . \n Thanks"
@@ -32,7 +32,7 @@ def signup_mail():
 def reset_mail():
     reciever_mail = input('enter you gmail account : ')
 
-    To = [sender]
+    To = [reciever_mail]
     CC = [reciever_mail]
     subject = "thefarmguy login"
     body = "\n password changed. \n Thanks"
